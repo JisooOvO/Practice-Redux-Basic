@@ -1,18 +1,16 @@
 import { useDispatch } from "react-redux";
-import { deleteTodo } from "../../store";
+import { remove } from "../../store";
 import { Link } from "react-router-dom";
 
 const Todo = ({ text, id }) => {
   const dispatch = useDispatch();
   const handleDispatch = () => {
-    dispatch(deleteTodo(id));
+    dispatch(remove(id));
   };
   return (
     <li>
-      <Link to={`/${id}`}>
-        {text}
-        <button onClick={handleDispatch}>DEL</button>
-      </Link>
+      <Link to={`/${id}`}>{text}</Link>
+      <button onClick={handleDispatch}>DEL</button>
     </li>
   );
 };
